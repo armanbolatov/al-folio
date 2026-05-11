@@ -118,8 +118,8 @@ ul.task-list input[type="checkbox"] {
 }
 
 .date-column {
-  width: 75px;
-  transform: translateX(-15px) translateY(-5px);
+  // width/transform removed — let the Bootstrap col-md-2 grid control width
+  // so the year badge centers properly with text-center.
 }
 
 // Projects

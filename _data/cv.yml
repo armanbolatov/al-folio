@@ -19,7 +19,7 @@ cv:
         location: Saarbrücken, Germany
         url: https://cispa.de/
         area: Machine Learning and Optimization
-        studyType: ELLIS PhD
+        studyType: Doctor of Philosophy
         start_date: "2026-09"
         end_date: "present"
 
@@ -101,7 +101,7 @@ cv:
     Awards:
       - title: International Mathematics Competition for University Students
         date: "2022-08"
-        url: https://nu.edu.kz/news-en/a-gold-medal-in-imc-2022-as-a-birthday-present/
+        url: /assets/pdf/imc.pdf
         placement: First Prize
       - title: Samsung Innovation Campus Hackathon
         date: "2023-07"
@@ -110,9 +110,6 @@ cv:
       - title: Google DSC Fire Recognition Hackathon
         date: "2022-11"
         placement: First Place
-      - title: Kaggle American Express Default Prediction
-        date: "2022-08"
-        placement: Silver Medal
       - title: HackNU/22, HackNU/23, HackNU/24
         date: "2024-04"
         placement: Second Place
@@ -121,9 +118,15 @@ cv:
         placement: Third Place
       - title: International Zhautykov Olympiad in Mathematics
         date: "2018-01"
+        url: /assets/pdf/izho.pdf
         placement: Silver Medal
-      - title: National Math Olympiad of Kazakhstan
+      - title: Kazakhstan National Mathematics Olympiad
         date: "2017-03"
+        url: /assets/img/NMO.jpeg
+        placement: Bronze Medal
+      - title: Silk Road Mathematics Competition
+        date: "2017-04"
+        url: /assets/img/SRMC.jpeg
         placement: Bronze Medal
       - title: Dean's List, Nazarbayev University
         date: "2022-12"

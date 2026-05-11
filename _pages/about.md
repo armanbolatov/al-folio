@@ -11,7 +11,7 @@ profile:
   more_info: >
     <p>Saarbrücken, Germany</p>
 
-selected_papers: false # toggle back on later
+selected_papers: true
 social: true
 
 announcements:
