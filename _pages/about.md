@@ -2,18 +2,17 @@
 layout: about
 title: about
 permalink: /
-subtitle: MS student in Machine Learning at <a href='https://mbzuai.ac.ae/'>MBZUAI</a>.
+subtitle: ELLIS PhD student at <a href='https://cispa.de/'>CISPA</a>.
 
 profile:
   align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image: profile.jpeg
+  image_circular: false
   more_info: >
-    <p>Masdar City</p>
-    <p>Abu Dhabi, UAE</p>
+    <p>Saarbrücken, Germany</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: false # toggle back on later
+social: true
 
 announcements:
   enabled: false
@@ -26,8 +25,10 @@ latest_posts:
   limit: 3
 ---
 
-Hi, I'm Arman. I'm a Master's student in Machine Learning at the [Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)](https://mbzuai.ac.ae/), advised by [Eduard Gorbunov](https://eduardgorbunov.github.io/), [Martin Takáč](https://mtakac.com/), and [Samuel Horváth](https://sites.google.com/view/samuelhorvath/).
+I work on machine learning and optimization, advised by [Sebastian Stich](https://sstich.ch/).
 
-My research focuses on **optimization for machine learning** — robust and adaptive methods, federated learning, and the theory behind training deep models. Previously, I earned a BS in Computer Science from [Nazarbayev University](https://nu.edu.kz/), where I worked on long-tail learning and gradient-based learning theory with [Zhenisbek Assylbekov](https://emergent.unpub.dev/).
+Before CISPA, I did my MSc in Machine Learning at [MBZUAI](https://mbzuai.ac.ae/) with [Martin Takáč](https://mtakac.com/), and my BSc in Computer Science at [Nazarbayev University](https://nu.edu.kz/).
 
-Outside of research, I enjoy competitive math and Kaggle competitions.
+On the engineering side, I've built RAG retrieval pipelines and trained, optimized, and deployed models for real-time video analytics.
+
+Outside of work, I love music, playing guitar, reading history, playing videogames, and I'm an average gym goer (I bench 100kg btw).

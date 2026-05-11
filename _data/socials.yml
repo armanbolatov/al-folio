@@ -1,7 +1,7 @@
 # this file contains the social media links and usernames of the author
 # the socials will be displayed in the order they are defined here
 cv_pdf: /assets/pdf/CV.pdf # path to your CV PDF file
-email: arman.bolatov@mbzuai.ac.ae
+email: arman.bolatov@mbzuai.ac.ae # rendered through jekyll-email-protect (obfuscated in HTML)
 github_username: armanbolatov
 scholar_userid: qSURSjMAAAAJ
 kaggle_id: armanbolatov
