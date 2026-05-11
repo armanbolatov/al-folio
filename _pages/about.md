@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: ELLIS PhD student at <a href='https://cispa.de/'>CISPA</a>.
+subtitle: <a href='https://ellis.eu/phd-postdoc'>ELLIS</a> PhD student at <a href='https://cispa.de/'>CISPA</a>.
 
 profile:
   align: right
