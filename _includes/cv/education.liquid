@@ -1,76 +1,64 @@
 {% comment %}
-  Unified education entry renderer for both RenderCV and JSONResume formats.
-  Right-aligned year column.
+  Education renderer. Same typography scale as experience.
 {% endcomment %}
 
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for entry in entries %}
-    <li class="list-group-item">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-          {% capture start_date %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
-          {% capture end_date %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
-          {% assign start_date = start_date | strip %}
-          {% assign end_date = end_date | strip %}
+    <li class="list-group-item px-0 py-3">
+      {% capture start_date %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
+      {% capture end_date %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
+      {% assign start_date = start_date | strip %}
+      {% assign end_date = end_date | strip %}
+      {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
+      {% assign location = location | strip %}
 
+      {% if start_date != '' or location != '' %}
+        <div class="float-md-right text-md-right mb-2 mb-md-0">
           {% if start_date != '' %}
             {% assign startYear = start_date | split: '-' | first %}
             {% assign endYear = end_date | split: '-' | first %}
-            {% if endYear == '' or endYear == 'present' %}
-              {% assign endYear = '...' %}
-            {% endif %}
+            {% if endYear == '' or endYear == 'present' %}{% assign endYear = '...' %}{% endif %}
             <span class="badge font-weight-bold danger-color-dark text-uppercase" style="min-width: 75px">{{ startYear }}-{{ endYear }}</span>
           {% endif %}
-
-          {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
-          {% assign location = location | strip %}
           {% if location != '' %}
-            <p class="location mt-1 mb-0">
+            <span class="location d-inline-block d-md-block ml-2 ml-md-0 mt-md-1">
               <i class="fa-solid fa-location-dot iconlocation"></i>
-              {{ location | replace: ", ", ",<br>" }}
-            </p>
+              {{ location | split: "," | first | strip }}
+            </span>
           {% endif %}
         </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
-          {% capture study_type %}{% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}{% endcapture %}
-          {% assign study_type = study_type | strip %}
+      {% endif %}
 
-          {% if entry.url %}
-            <h6 class="title font-weight-bold ml-1 ml-md-5">
-              <a href="{{ entry.url }}">{{ study_type }}</a>
-            </h6>
-          {% elsif study_type != '' %}
-            <h6 class="title font-weight-bold ml-1 ml-md-5">{{ study_type }}</h6>
-          {% endif %}
+      {% capture study_type %}{% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}{% endcapture %}
+      {% assign study_type = study_type | strip %}
+      {% if entry.url %}
+        <h6 class="title font-weight-bold mb-1" style="font-size: 1rem"><a href="{{ entry.url }}">{{ study_type }}</a></h6>
+      {% elsif study_type != '' %}
+        <h6 class="title font-weight-bold mb-1" style="font-size: 1rem">{{ study_type }}</h6>
+      {% endif %}
 
-          {% if entry.institution %}
-            <h6 class="ml-1 ml-md-5" style="font-size: 0.95rem">{{ entry.institution }}</h6>
-          {% endif %}
+      {% if entry.institution %}
+        <h6 class="mb-1" style="font-size: 0.9rem">{{ entry.institution }}</h6>
+      {% endif %}
 
-          {% if entry.area %}
-            <h6 class="ml-1 ml-md-5" style="font-size: 0.95rem; font-style: italic">{{ entry.area }}</h6>
-          {% endif %}
+      {% if entry.area %}
+        <h6 class="mb-1" style="font-size: 0.9rem; font-style: italic">{{ entry.area }}</h6>
+      {% endif %}
 
-          {% if entry.score %}
-            <h6 class="ml-1 ml-md-5" style="font-size: 0.95rem">GPA: {{ entry.score }}</h6>
-          {% endif %}
+      {% if entry.score %}
+        <h6 class="mb-0" style="font-size: 0.9rem">GPA: {{ entry.score }}</h6>
+      {% endif %}
 
-          {% if entry.courses or entry.highlights %}
-            <ul class="items ml-1 ml-md-5">
-              {% for item in entry.courses %}
-                <li>
-                  <span class="item">{{ item }}</span>
-                </li>
-              {% endfor %}
-              {% for item in entry.highlights %}
-                <li>
-                  <span class="item">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </div>
-      </div>
+      {% if entry.courses or entry.highlights %}
+        <ul class="items mt-2 mb-0" style="font-size: 0.9rem">
+          {% for item in entry.courses %}
+            <li class="mb-1"><span class="item">{{ item }}</span></li>
+          {% endfor %}
+          {% for item in entry.highlights %}
+            <li class="mb-1"><span class="item">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </li>
   {% endfor %}
 </ul>

@@ -1,71 +1,65 @@
 {% comment %}
-  Unified work/experience entry renderer for both RenderCV and JSONResume formats.
-  Right-aligned year column.
+  Experience renderer.
+  - Title: 1rem bold
+  - Company / summary: 0.9rem (italic for summary)
+  - Bullets: 0.9rem
+  - Year + city floated right (desktop), stacked above (mobile)
 {% endcomment %}
 
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for entry in entries %}
-    <li class="list-group-item">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-          {% capture start_date %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
-          {% capture end_date %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
-          {% assign start_date = start_date | strip %}
-          {% assign end_date = end_date | strip %}
+    <li class="list-group-item px-0 py-3">
+      {% capture start_date %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
+      {% capture end_date %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
+      {% assign start_date = start_date | strip %}
+      {% assign end_date = end_date | strip %}
+      {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
+      {% assign location = location | strip %}
 
+      {% if start_date != '' or location != '' %}
+        <div class="float-md-right text-md-right mb-2 mb-md-0">
           {% if start_date != '' %}
             {% assign startYear = start_date | split: '-' | first %}
             {% assign endYear = end_date | split: '-' | first %}
-            {% if endYear == '' or endYear == 'present' %}
-              {% assign endYear = '...' %}
-            {% endif %}
+            {% if endYear == '' or endYear == 'present' %}{% assign endYear = '...' %}{% endif %}
             <span class="badge font-weight-bold danger-color-dark text-uppercase" style="min-width: 75px">{{ startYear }}-{{ endYear }}</span>
           {% endif %}
-
-          {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
-          {% assign location = location | strip %}
           {% if location != '' %}
-            <p class="location mt-1 mb-0">
+            <span class="location d-inline-block d-md-block ml-2 ml-md-0 mt-md-1">
               <i class="fa-solid fa-location-dot iconlocation"></i>
-              {{ location | replace: ", ", ",<br>" }}
-            </p>
+              {{ location | split: "," | first | strip }}
+            </span>
           {% endif %}
         </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
-          {% capture position_title %}{% if entry.position %}{{ entry.position }}{% endif %}{% endcapture %}
-          {% assign position_title = position_title | strip %}
+      {% endif %}
 
-          {% if entry.url %}
-            <h6 class="title font-weight-bold ml-1 ml-md-5">
-              <a href="{{ entry.url }}">{{ position_title }}</a>
-            </h6>
-          {% elsif position_title != '' %}
-            <h6 class="title font-weight-bold ml-1 ml-md-5">{{ position_title }}</h6>
-          {% endif %}
+      {% capture position_title %}{% if entry.position %}{{ entry.position }}{% endif %}{% endcapture %}
+      {% assign position_title = position_title | strip %}
+      {% if entry.url %}
+        <h6 class="title font-weight-bold mb-1" style="font-size: 1rem"><a href="{{ entry.url }}">{{ position_title }}</a></h6>
+      {% elsif position_title != '' %}
+        <h6 class="title font-weight-bold mb-1" style="font-size: 1rem">{{ position_title }}</h6>
+      {% endif %}
 
-          {% capture company_name %}{% if entry.name %}{{ entry.name }}{% elsif entry.company %}{{ entry.company }}{% elsif entry.organization %}{{ entry.organization }}{% endif %}{% endcapture %}
-          {% assign company_name = company_name | strip %}
-          {% if company_name != '' %}
-            <h6 class="ml-1 ml-md-5" style="font-size: 0.95rem">{{ company_name }}</h6>
-          {% endif %}
+      {% capture company_name %}{% if entry.name %}{{ entry.name }}{% elsif entry.company %}{{ entry.company }}{% elsif entry.organization %}{{ entry.organization }}{% endif %}{% endcapture %}
+      {% assign company_name = company_name | strip %}
+      {% if company_name != '' %}
+        <h6 class="mb-1" style="font-size: 0.9rem">{{ company_name }}</h6>
+      {% endif %}
 
-          {% if entry.summary %}
-            <h6 class="ml-1 ml-md-5" style="font-size: 0.95rem; font-style: italic">
-              {{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}
-            </h6>
-          {% endif %}
+      {% if entry.summary %}
+        <h6 class="mb-2" style="font-size: 0.9rem; font-style: italic">
+          {{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}
+        </h6>
+      {% endif %}
 
-          {% if entry.highlights %}
-            <ul class="items ml-1 ml-md-5">
-              {% for item in entry.highlights %}
-                <li>
-                  <span class="item">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </div>
-      </div>
+      {% if entry.highlights %}
+        <ul class="items mt-2 mb-0" style="font-size: 0.9rem">
+          {% for item in entry.highlights %}
+            <li class="mb-1"><span class="item">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </li>
   {% endfor %}
 </ul>

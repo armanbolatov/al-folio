@@ -1,57 +1,39 @@
 {% comment %}
-  Awards entry renderer.
-  Layout: [date (right) | title | placement (right)]
+  Awards renderer. Same typography scale as experience/education.
 {% endcomment %}
 
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for entry in entries %}
-    <li class="list-group-item">
-      <div class="row align-items-center">
-        {% capture start_date %}{% if entry.date %}{{ entry.date }}{% endif %}{% endcapture %}
+    <li class="list-group-item px-0 py-2">
+      {% capture start_date %}{% if entry.date %}{{ entry.date }}{% endif %}{% endcapture %}
+      {% assign start_date = start_date | strip %}
 
+      <div class="float-md-right text-md-right mb-2 mb-md-0">
         {% if start_date != '' %}
-          <div class="col-xs-2 col-sm-2 col-md-2 text-center">
-            <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">
-              {{- start_date | split: '-' | first -}}
-            </span>
-          </div>
-          <div class="col-xs-7 col-sm-7 col-md-7 mt-2 mt-md-0">
-            {% if entry.url %}
-              <h6 class="title ml-1 ml-md-5" style="font-weight: 400;">
-                <a href="{{ entry.url }}">{{ entry.title }}</a>
-              </h6>
-            {% elsif entry.title %}
-              <h6 class="title ml-1 ml-md-5" style="font-weight: 400;">{{ entry.title }}</h6>
-            {% endif %}
-            {% if entry.awarder %}
-              <h6 class="ml-1 ml-md-5" style="font-size: 0.95rem">{{ entry.awarder }}</h6>
-            {% endif %}
-            {% if entry.summary %}
-              <p class="ml-1 ml-md-5">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-            {% endif %}
-          </div>
-          <div class="col-xs-3 col-sm-3 col-md-3 text-right">
-            {% if entry.placement %}
-              <span class="font-weight-light">{{ entry.placement }}</span>
-            {% endif %}
-          </div>
-        {% else %}
-          <div class="col-xs-9 col-sm-9 col-md-9">
-            {% if entry.url %}
-              <h6 class="title ml-1 ml-md-5" style="font-weight: 400;">
-                <a href="{{ entry.url }}">{{ entry.title }}</a>
-              </h6>
-            {% elsif entry.title %}
-              <h6 class="title ml-1 ml-md-5" style="font-weight: 400;">{{ entry.title }}</h6>
-            {% endif %}
-          </div>
-          <div class="col-xs-3 col-sm-3 col-md-3 text-right">
-            {% if entry.placement %}
-              <span class="font-weight-light">{{ entry.placement }}</span>
-            {% endif %}
-          </div>
+          <span class="badge font-weight-bold danger-color-dark text-uppercase" style="min-width: 75px">
+            {{- start_date | split: '-' | first -}}
+          </span>
+        {% endif %}
+        {% if entry.placement %}
+          <span class="font-weight-light d-inline-block d-md-block ml-2 ml-md-0 mt-md-1" style="font-size: 0.9rem">{{ entry.placement }}</span>
         {% endif %}
       </div>
+
+      {% if entry.url %}
+        <h6 class="title mb-1" style="font-size: 1rem; font-weight: 400;">
+          <a href="{{ entry.url }}">{{ entry.title }}</a>
+        </h6>
+      {% elsif entry.title %}
+        <h6 class="title mb-1" style="font-size: 1rem; font-weight: 400;">{{ entry.title }}</h6>
+      {% endif %}
+
+      {% if entry.awarder %}
+        <h6 class="mb-0" style="font-size: 0.9rem">{{ entry.awarder }}</h6>
+      {% endif %}
+
+      {% if entry.summary %}
+        <p class="mb-0" style="font-size: 0.9rem">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+      {% endif %}
     </li>
   {% endfor %}
 </ul>
