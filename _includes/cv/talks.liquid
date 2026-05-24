@@ -1,0 +1,44 @@
+{% comment %}
+  Talks renderer. Same typography scale as experience/education/awards.
+{% endcomment %}
+
+<ul class="card-text font-weight-light list-group list-group-flush">
+  {% for entry in entries %}
+    <li class="list-group-item px-0 py-3">
+      {% capture start_date %}{% if entry.date %}{{ entry.date }}{% endif %}{% endcapture %}
+      {% assign start_date = start_date | strip %}
+      {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
+      {% assign location = location | strip %}
+
+      <div class="float-md-right text-md-right mb-2 mb-md-0">
+        {% if start_date != '' %}
+          <span class="badge font-weight-bold danger-color-dark text-uppercase" style="min-width: 75px">
+            {{- start_date | split: '-' | first -}}
+          </span>
+        {% endif %}
+        {% if location != '' %}
+          <span class="location d-inline-block d-md-block ml-2 ml-md-0 mt-md-1">
+            <i class="fa-solid fa-location-dot iconlocation"></i>
+            {{ location | split: "," | first | strip }}
+          </span>
+        {% endif %}
+      </div>
+
+      {% if entry.url %}
+        <h6 class="title font-weight-bold mb-1" style="font-size: 1rem">
+          <a href="{{ entry.url }}">{{ entry.title }}</a>
+        </h6>
+      {% elsif entry.title %}
+        <h6 class="title font-weight-bold mb-1" style="font-size: 1rem">{{ entry.title }}</h6>
+      {% endif %}
+
+      {% if entry.venue %}
+        <h6 class="mb-1" style="font-size: 0.9rem; font-style: italic">{{ entry.venue }}</h6>
+      {% endif %}
+
+      {% if entry.summary %}
+        <p class="mb-0" style="font-size: 0.9rem">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

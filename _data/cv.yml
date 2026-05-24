@@ -43,7 +43,7 @@ cv:
 
       - institution: Nazarbayev Intellectual School
         location: Taldykorgan, Kazakhstan
-        url: https://tldk.nis.edu.kz/
+        url: https://nis.edu.kz/
         area: Physics and Mathematics
         studyType: High School Diploma
         start_date: "2014-09"
@@ -130,6 +130,12 @@ cv:
         placement: Bronze Medal
       - title: Dean's List, Nazarbayev University
         date: "2022-12"
+
+    Talks:
+      - title: "Beyond One-Hot Labels: KL-Divergence Training with Empirical Distributions for Faster Optimization"
+        venue: EurOPT 2025
+        location: Southampton, UK
+        date: "2025-07"
 
     Skills:
       - name: Languages

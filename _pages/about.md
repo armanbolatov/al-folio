@@ -31,4 +31,6 @@ Before CISPA, I did my MSc in Machine Learning at [MBZUAI](https://mbzuai.ac.ae/
 
 On the engineering side, I've built RAG retrieval pipelines and trained, optimized, and deployed models for real-time video analytics.
 
+I also contribute to [Beyond Curriculum](https://bc-pf.org), a Kazakhstani non-profit that runs [Scoreboard](https://scoreboard.bc-pf.org), [Blog](https://blog.bc-pf.org), and [Ask](https://ask.bc-pf.org), celebrating olympiad winners, publishing educational content, and helping students with hard problems. On the side, I taught math to high schoolers; my students have since been admitted to Columbia, Yonsei, and Nazarbayev University, and won medals at the Kazakhstan National Math Olympiad.
+
 Outside of work, I love music, playing guitar, reading history, playing videogames, and I'm an average gym goer (I bench 100kg btw).
