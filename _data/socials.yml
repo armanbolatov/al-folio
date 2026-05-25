@@ -1,6 +1,8 @@
 # this file contains the social media links and usernames of the author
 # the socials will be displayed in the order they are defined here
 email: arman.bolatov@mbzuai.ac.ae # rendered through jekyll-email-protect (obfuscated in HTML)
-github_username: armanbolatov
 scholar_userid: qSURSjMAAAAJ
+orcid_id: 0000-0002-4238-487X
+github_username: armanbolatov
+linkedin_username: arman-bolatov
 kaggle_id: armanbolatov

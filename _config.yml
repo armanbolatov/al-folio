@@ -15,7 +15,7 @@ footer_text: >
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: arman bolatov, machine learning, optimization, deep learning, mbzuai
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: 🧑‍🔬 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: pashok.png # favicon image in /assets/img/
 
 url: https://armanbolatov.vercel.app # change to your Vercel project URL or custom domain
 baseurl: # leave blank for root

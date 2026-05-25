@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://ellis.eu/phd-postdoc'>ELLIS</a> PhD student at <a href='https://cispa.de/'>CISPA</a>.
+subtitle: <a href='https://ellis.eu/phd-postdoc'>ELLIS</a> PhD student at <a href='https://cispa.de/'>CISPA</a>, advised by <a href='https://sstich.ch/'>Sebastian Stich</a>.
 
 profile:
   align: right
@@ -25,12 +25,8 @@ latest_posts:
   limit: 3
 ---
 
-I work on machine learning and optimization, advised by [Sebastian Stich](https://sstich.ch/).
+My research spans optimization, (machine, deep, federated) learning, efficient inference and training, and learning theory. I did my MSc in Machine Learning at [MBZUAI](https://mbzuai.ac.ae/), advised by [Martin Takáč](https://mtakac.com/), and my BSc in Computer Science at [Nazarbayev University](https://nu.edu.kz/).
 
-Before CISPA, I did my MSc in Machine Learning at [MBZUAI](https://mbzuai.ac.ae/) with [Martin Takáč](https://mtakac.com/), and my BSc in Computer Science at [Nazarbayev University](https://nu.edu.kz/).
+I've also built RAG pipelines and deployed real-time CV models. On the side, I contributed to [Beyond Curriculum](https://bc-pf.org), a Kazakhstani non-profit running [Scoreboard](https://scoreboard.bc-pf.org), [Blog](https://blog.bc-pf.org), and [Ask](https://ask.bc-pf.org). I also taught olympiad math to high schoolers, who have since gone on to Columbia, Yonsei, and Nazarbayev University, and to medals at the Kazakhstan National Math Olympiad.
 
-On the engineering side, I've built RAG retrieval pipelines and trained, optimized, and deployed models for real-time video analytics.
-
-I also contribute to [Beyond Curriculum](https://bc-pf.org), a Kazakhstani non-profit that runs [Scoreboard](https://scoreboard.bc-pf.org), [Blog](https://blog.bc-pf.org), and [Ask](https://ask.bc-pf.org), celebrating olympiad winners, publishing educational content, and helping students with hard problems. On the side, I taught math to high schoolers; my students have since been admitted to Columbia, Yonsei, and Nazarbayev University, and won medals at the Kazakhstan National Math Olympiad.
-
-Outside of work, I love music, playing guitar, reading history, playing videogames, and I'm an average gym goer (I bench 100kg btw).
+Outside of work, I love music, playing guitar, reading history, playing videogames, and I'm an average gym goer (I bench 100kg btw). Always happy to chat! 😊
